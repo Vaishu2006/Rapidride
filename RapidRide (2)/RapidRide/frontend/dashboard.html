@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RapidRide Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>RapidRide</h1>
+    <div>
+        <span id="userName">Hello</span>
+        <button id="logoutBtn">Logout</button>
+    </div>
+</header>
+
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <ul>
+            <li class="active" onclick="showSection('createRide')">Create Ride</li>
+            <li onclick="showSection('availableRides')">Available Rides</li>
+            <li onclick="showSection('mapSection')">Map</li>
+            <li onclick="showSection('profileSection')">Profile</li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Create Ride -->
+        <section id="createRide" class="section">
+            <h2>Create a Ride</h2>
+            <form id="rideForm">
+                <input type="text" id="source" placeholder="Source" required>
+                <input type="text" id="destination" placeholder="Destination" required>
+                <input type="number" id="passengers" min="1" value="1" required>
+                <input type="text" id="driverName" placeholder="Driver Name" required>
+                <input type="tel" id="driverPhone" placeholder="Driver Phone" required>
+
+                <div class="gender">
+                    <label><input type="radio" name="driverGender" value="Male" required> Male</label>
+                    <label><input type="radio" name="driverGender" value="Female"> Female</label>
+                </div>
+
+                <button type="submit">Create Ride</button>
+            </form>
+        </section>
+
+        <!-- Available Rides -->
+        <section id="availableRides" class="section" style="display:none;">
+            <h2>Available Rides</h2>
+            <ul id="rideList" class="rides-list"></ul>
+        </section>
+
+        <!-- Map -->
+        <section id="mapSection" class="section" style="display:none;">
+            <h2>Route Map</h2>
+            <img
+                id="mapImage"
+                src="https://staticmap.openstreetmap.de/staticmap.php?center=India&zoom=5&size=600x350"
+                alt="Route Map"
+                style="width:100%; max-width:600px; border-radius:10px;"
+            >
+        </section>
+
+        <!-- Profile -->
+        <section id="profileSection" class="section" style="display:none;">
+            <h2>User Profile</h2>
+            <p><strong>Name:</strong> <span id="profileName"></span></p>
+        </section>
+
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
